@@ -1,0 +1,66 @@
+\documentclass[titlepage,UTF8]{ctexart}
+
+\input{设置}
+
+% \includeonly{前言}
+% \includeonly{引言}
+% \includeonly{结论}
+% \includeonly{致谢}
+% \includeonly{参考文献}
+% \includeonly{附录}
+
+\begin{document}
+\zihao{-4}
+\include{前言}
+\setcounter{page}{1}
+\include{引言}
+\include{结论}
+\include{致谢}
+\include{参考文献}
+\include{附录}
+
+% \input{引言}
+% \input{结论}
+% \input{致谢}
+% \input{参考文献}
+% \input{附录}
+
+%% 绘图
+%\begin{center}
+%	\begin{tikzpicture}
+%	\begin{axis}[axis lines = left,xlabel = $x$,ylabel = {$f(x)$},]
+%	%Below the red parabola is defined
+%	\addplot[domain=-10:10,samples=100, color=red,]{x^2 - 2*x - 1};
+%	\addlegendentry{$x^2 - 2x - 1$}
+%	%Here the blue parabloa is defined
+%	\addplot[domain=-10:10, samples=100, color=blue,]{x^2 + 2*x + 1};
+%	\addlegendentry{$x^2 + 2x + 1$}
+%	\end{axis}
+%	\end{tikzpicture}
+%\end{center}
+%
+%\newpage
+%
+%\begin{pspicture}(1.5,1em)
+%\psline(0,0)(1,1em)(1.5,0)
+%\end{pspicture}
+%
+%\newpage
+%
+%\begin{tikzpicture}[
+%roundnode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=7mm},
+%squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=5mm},
+%]
+%%Nodes
+%\node[squarednode]      (maintopic)                              {我是};
+%\node[roundnode]        (uppercircle)       [above=of maintopic] {大帅哥};
+%\node[squarednode]      (rightsquare)       [right=of maintopic] {3};
+%\node[roundnode]        (lowercircle)       [below=of maintopic] {4};
+%
+%%Lines
+%\draw[->] (uppercircle.south) -- (maintopic.north);
+%\draw[->] (maintopic.east) -- (rightsquare.west);
+%\draw[->] (rightsquare.south) .. controls +(down:7mm) and +(right:7mm) .. (lowercircle.east);
+%\end{tikzpicture}
+
+\end{document}
