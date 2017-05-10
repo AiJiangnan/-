@@ -1,2 +1,2 @@
-# InstituteOfDisasterPreventionPaper
-LaTex防灾科技学院毕业设计模板
+# 基于GUI的误差理论与数据处理
+
