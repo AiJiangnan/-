@@ -1,9 +1,15 @@
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{pgfplots}
 \usepackage{pstricks}
-\usetikzlibrary{positioning}
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri,shapes,snakes,calc}
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 
@@ -14,7 +20,7 @@
 
 %设计页面尺寸
 \usepackage{geometry}
-\geometry{a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+\geometry{a4paper,left=2.5cm,right=2cm,top=2cm,bottom=2cm}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -65,3 +71,4 @@
 
 %定制命令
 \newcommand\scite[1]{\textsuperscript{\cite{#1}}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}

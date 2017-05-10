@@ -4,3 +4,6 @@
 *.toc
 *.gz
 *.gz(busy)
+*.bbl
+*.blg
+*.out
