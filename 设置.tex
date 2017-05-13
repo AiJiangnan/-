@@ -3,6 +3,7 @@
 \usepackage{caption}
 \usepackage{amsmath}
 \usepackage{multirow}
+\usepackage{booktabs}
 \usepackage{array}
 \usepackage{listings}
 \usepackage{color}
@@ -52,18 +53,20 @@
 
 %代码高亮设计
 \lstset{columns=flexible,
+	language=Matlab,
+%	escapechar=',
 	backgroundcolor=\color{backcolour},
-	commentstyle=\color{codegreen},
 	keywordstyle=\color{magenta},
-	numberstyle=\small\color{codegray},
+%	numberstyle=\small\color{codegray},
 	stringstyle=\color{codepurple},
+	commentstyle=\color{codegreen},
 	basicstyle=\small,
 	breakatwhitespace=false,
 	breaklines=true,
 	captionpos=b,
 	keepspaces=true,
-	numbers=left,
-	numbersep=8pt,
+%	numbers=left,
+%	numbersep=8pt,
 	showspaces=false,
 	showstringspaces=false,
 	showtabs=false,
