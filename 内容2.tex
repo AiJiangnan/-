@@ -81,10 +81,51 @@ Matlab计算功能之所以强大，是因为它拥有很多的工具箱，里�
 	\caption{Matlab常用误差处理函数}
 \end{figure}
 \subsubsection{Matlab绘制图像}
+无论是处理数据和误差分析，还是进行别的数学计算处理的时候，绘制函数图形能更直接地了解数据的特性，也可以更直接地描述出计算的结果。在Matlab中，绘制函数图形的功能也是很强大的。在Matlab中常用绘图方法：
+\begin{lstlisting}
+ >> x = 0:0.01:2*pi;					% 产生一组数据 x
+ >> y = sin(x);							% 用 sin 函数产生 y
+ >> plot(x,y,'-b')						% 绘制函数图像，‘ - ’设置线条类型，‘ b ’设置颜色
+ >> grid on								% 设置显示网格
+ >> title('the function of sin')		% 设置图像标题
+ >> xlabel('x')							% 设置 x 坐标名称
+ >> ylabel('y')							% 设置 y 坐标名称\end{lstlisting}
+ 绘制的结果如下图：
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{sin_x}
+	\caption{$ sin(x) $的函数图像}
+\end{figure}
 \subsubsection{Matlab的m文件}
+Matlab编写的代码是以.m结尾的文件格式，m文件分为两种，m脚本文件和m函数文件。将执行的命令集写在m脚本文件中，直接在命令窗口输入文件名即可运行脚本文件，为了使文件不与Matlab自带的命令冲突，不要把文件命名与Matlab自带命令名称一致。编写脚本如下：
+\begin{lstlisting}
+   x = 0:0.01:2*pi;
+   y = sin(x);
+   plot(x,y,'-b')
+   grid on
+   title('the function of sin')
+   xlabel('x')
+   ylabel('y')\end{lstlisting}
+将上面代码保存为plotsin.m文件，在命令窗口输入plotsin也可以绘制出图7函数图像。
 
+还有一种是m函数文件，它在文件内部定义一个函数，由外界调取该函数进行计算，不可以单独运行，定义的函数名称要与文件名称一致，且不能与Matlab自带函数名称冲突。编写代码如下：
+\begin{lstlisting}
+ function sum = adds(x, y)
+ sum = x + y;\end{lstlisting}
+将上面代码保存为adds.m文件，在命令窗口输入adds(3,4)，执行结果如下：
+\begin{lstlisting}
+ >> adds(3,4)
+ 	ans =
+		 7\end{lstlisting}
 \subsection{Matlab GUI设计}
+在Matlab中，GUI设计有两种方法，一种是用代码实现界面的编程，还有一种是使用GUIDE图形界面设计，前者虽然编写代码量较大，界面的绘制都用代码实现，但在重复设计上有优势，比如大部分控件拥有相同的属性，我们可以用循环来设置。后者虽然操作简单，界面绘制布局可视化，但在控件多的情况下，重复设置属性就比较麻烦了。在本毕业设计中，采用的前种设计方法。在Matlab中图形界面的层次结构\footnote{引用参考文献[2]第9章Matlab GUI的组成与结构第183页}如下图：
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{MatlabGUI}
+	\caption{GUI对象层次结构图}
+\end{figure}
 \subsubsection{Matlab中设计GUI的函数}
+
 \subsubsection{Matlab中GUI控件的设计}
 \subsubsection{Matlab中回调函数的编写}
 \subsubsection{Matlab文件的读取与保存}

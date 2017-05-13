@@ -1,0 +1,10 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // xelatex.exe -synctex=1 -interaction=nonstopmode %.tex
+    "version": "0.1.0",
+    "command": "xelatex",
+    "isShellCommand": true,
+    "args": ["-synctex=1","-interaction=nonstopmode","防灾科技学院毕业设计模板.tex"],
+    "showOutput": "always"
+}
