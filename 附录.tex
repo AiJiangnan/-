@@ -38,6 +38,24 @@
 	&30	&0.332	&0.378	&0.457	\\	\hline
 \end{tabular}
 \newpage
+\begin{center}
+	\textbf{附录2 GUI设计函数常用属性\footnote{参考文献[2]第9章Matlab GUI的组成与结构第196页}}
+\end{center}
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+	\hline
+	\multicolumn{1}{|c|}{\textbf{对象属性}}	&\multicolumn{1}{c}{\textbf{意义}}	&\multicolumn{1}{|c|}{\textbf{取值及含义}}\\	\hline
+	BackgroundColor	&uicontrol背景色。3元素的RGB向量或Matlab预先定义的颜色名称	&默认的背景色是浅灰色		\\	\hline
+	Callback		&Matlab回调串，当uicontrol激活时，回调串传给函数eval	   &初始值为空矩阵			\\	\hline
+	Max				&属性Value的最大许可值									 &默认值为1				\\	\hline
+	Min				&属性Value的最小许可值									 &默认值为0				\\	\hline
+	Position		&位置向量[left bottom width height]					   	&					    \\	\hline
+	String			&文本字符串，uicontrol显示的文本						    &					 \\	\hline
+	Style			&定义uicontrol的类型					&text,edit,pushbutton...				\\	\hline
+	Units			&设置属性值的单位										&pixels：屏幕像素		\\	\hline
+	Value			&uicontrol的当前值										&文本对象和按钮不设置该属性	\\	\hline
+	UserData		&用户指定的数据。可以是矩阵、字符串等						&						\\	\hline
+\end{tabular}
+\newpage
 \begin{lstlisting}[language=Matlab]
 % 等精度测量数据误差分析
 %

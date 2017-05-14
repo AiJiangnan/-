@@ -142,24 +142,96 @@ Matlab编写的代码是以.m结尾的文件格式，m文件分为两种，m脚�
 	上面代码可以在命令窗口和m文件内执行，执行结果如下图：
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.3]{MyFigure}
+		\includegraphics[scale=0.4]{MyFigure}
 		\caption{MyFigure窗口}
 	\end{figure}
 	根据图9的结果，我们知道，窗口的位置和大小都是固定的，而且窗口是不可变的，不能拖拽放大，也不能最大化，因为在属性中设置的结果。
 	\item \textbf{uimenu函数}
 
-	\qquad 在设计菜单的时候，必须要先有一个图形框架窗口，我们在前面用figure函数创建好的界面基础上设计菜单栏。设计的方法\footnote{参考文献[2]第9章Matlab GUI的组成与结构第183页}如下：
+	\qquad 在设计菜单的时候，必须要先有一个图形框架窗口，我们在前面用figure函数\footnote{参考文献[2]第9章Matlab GUI的组成与结构第183页}创建好的界面基础上设计菜单栏。设计的方法如下：
 	\begin{lstlisting}
  hm = uimenu(parent,'PropertyName',propertyvalue,...);\end{lstlisting}
 	其中：hm为对象名，参数parent为父对象名，后面的参数同样是成对存在的属性PropertyName和属性值propertyvalue，用来设置菜单的一些属性。执行如下代码：
 	\begin{lstlisting}
- hm1 = uimenu(hf,'label','a_menu');
- hm2 = uimenu(hf,'label','b_menu');
- hm3 = uimenu(hf,'label','c_menu');
- subhm1 = uimenu(hm2,'label','b_menu_1');
- subhm2 = uimenu(hm2,'label','b_menu_2');
- subhm3 = uimenu(hm2,'label','b_menu_3');\end{lstlisting}
+ hm1 = uimenu(hf,'label','菜单1');
+ hm2 = uimenu(hf,'label','菜单2');
+ hm3 = uimenu(hf,'label','菜单3');
+ subhm1 = uimenu(hm2,'label','子菜单1');
+ subhm2 = uimenu(hm2,'label','子菜单2');
+ subhm3 = uimenu(hm2,'label','子菜单3');\end{lstlisting}
+ 	参数parent是父对象，当父对象为菜单时，创建下拉子菜单。运行结果如图10。
+	\item \textbf{uicontrol函数}
+	
+	\qquad 创建常用的控件使用uicontrol函数，常用的控件有按钮、静态文本、文本框、单选框、多选框等等。uicontrol函数\footnote{参考文献[2]第9章Matlab GUI的组成与结构第199页}如下：
+	\begin{lstlisting}
+ ui = uicontrol(parent,'PropertyName',propertyvalue,...);\end{lstlisting}
+ 	其中的参数属性设置与前面的一样。
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{MyFigure_uimenu}
+		\caption{带菜单的MyFigure窗口}
+	\end{figure}
+	继续添加如下代码运行测试，运行结果为图11。
+	\begin{lstlisting}
+ ui = 1:4;												% 创建控件数组
+ string = {'text','edit','pushbutton','popup'};			% 创建控件名称字符串数组
+ position = [100,380,240,25								% 创建位置和大小的二级数组
+             100,350,240,25
+ 			 100,320,240,25
+             100,290,240,25];
+ for i = 1:length(ui)									% 利用 for 循环创建控件和设置属性参数
+     ui(i) = uicontrol(hf,...							% 设置父对象
+         'Style',string{i},...							% 设置控件类型，调用 string 数组
+         'FontSize',10,...								% 设置字体大小
+         'Units','pixels',...							% 设置位置大小设置类型为像素
+         'String',string{i},...							% 设置显示的字符串
+         'Position',position(i,:));						% 设置位置和大小，调用二维数组
+ end\end{lstlisting}
+ 	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{MyFigure_uicontrol}
+		\caption{带控件的MyFigure窗口}
+	\end{figure}
+	以后界面中的控件设计就用此函数实现，利用for循环和定义属性值数组可以更灵活的创建控件和设置控件的属性。该毕业设计的界面控件设计就是利用此方法来实现控件的布局和大小设置。
+	\item \textbf{uipanel函数}
+
+	\qquad uipanel函数\footnote{参考文献[2]第9章Matlab GUI的组成与结构第203页}可以创建一个面板来使控件归类，使界面的控件设计更直观，实现的函数如下：
+	\begin{lstlisting}
+ ui = uipanel(parent,'PropertyName',propertyvalue,...);\end{lstlisting}
+ 	其中的参数属性设置和前面的函数一样。继续向前面的m文件中追加如下代码，运行结果如图12。
+	\begin{lstlisting}
+ up = uipanel(hf,...									% 设置父对象
+ 	'Title','uipanel',...								% 设置名称
+ 	'FontSize',10,...									% 设置字体大小
+ 	'Units','pixels',...								% 设置位置大小设置类型为像素
+ 	'Position',[100,100,350,160]);						% 设置位置和大小\end{lstlisting}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{MyFigure_uipanel}
+		\caption{带面板的MyFigure窗口}
+	\end{figure}
+	\item \textbf{axes函数}
+
+	\qquad 在界面设计的过程中，要想在界面上绘制函数图像，则必须创建axes坐标轴\footnote{参考文献[2]第9章Matlab GUI的组成与结构第218页}，创建方法如下：
+	\begin{lstlisting}
+ ua = axes('PropertyName',propertyvalue,...);\end{lstlisting}
+ 	其中的参数属性设置和前面的函数一样。继续向前面的m文件中追加如下代码，运行结果如图13。
+	 \begin{lstlisting}
+ ua = axes(...											% 定义坐标轴对象名为 ua
+	'Units','pixels',...								% 设置位置大小设置类型为像素
+	'Position',[100,100,350,160]);						% 设置位置和大小
+	x = 0:0.01:2*pi;
+	y = sin(x);
+	axes(ua);											% 设置绘图的坐标轴为 ua
+	plot(x,y);\end{lstlisting}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{MyFigure_axes}
+		\caption{带坐标轴的MyFigure窗口}
+	\end{figure}
 \end{enumerate}
 
+利用前面的5个GUI设计函数，可以设计出任何我们想要和图形交互界面，只需要在函数参数中根据我们的需求设置属性即可，控件中常用的属性设置见附录2，但上面的仅仅是设计好界面，还不能够处理数据，要想使用控件触发事件，则需要使用回调函数。
 \subsubsection{Matlab中回调函数的编写}
+
 \subsubsection{Matlab文件的读取与保存}
