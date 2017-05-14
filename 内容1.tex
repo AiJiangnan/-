@@ -340,7 +340,8 @@
 当各不确定度分量$ u_i $相互独立时，合成标准不确定度的自由度$ v $为\[ v=\frac{u_c^4}{\sum\limits_{i=1}^{N}\frac{u_i^4}{v_i}} \]
 \subsection{最小二乘法处理}
 测量结果的最可信赖值应使残余误差平方和最小（不等精度测量时，使加权残余误差平方和最小），这就是最小二乘法原理\footnote{《误差理论与数据处理》第125页最小二乘法的定义，详情见参考文献[1]}。
-\subsubsection{等精度测量线性参数最小二乘法处理的正规方程}
+\begin{enumerate}
+\item \textbf{等精度测量线性参数最小二乘法处理的正规方程}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[
@@ -400,36 +401,38 @@
 \end{bmatrix},X=\begin{bmatrix}
 	X_1\\X_2\\\vdots\\Y_t
 \end{bmatrix} \]
-\subsubsection{不等精度测量线性参数最小二乘法处理的正规方程}
-不等精度测量时线性参数的误差方程和等精度的一样，只是条件式要取加权残余误差平方和最小，即\[ Z=\sum_{i=1}^{n}p_iv_i^2=min \]
-对$ Z $求导数并令其为0，最后求得正规方程为\[ \begin{cases}
-	p_1a_{11}v_1+p_2a_{21}v_2+...+p_na_{n1}v_n=0\\
-	p_1a_{12}v_1+p_2a_{22}v_2+...+p_na_{n2}v_n=0\\
-	\qquad \vdots\\
-	p_1a_{1t}v_1+p_2a_{2t}v_2+...+p_na_{nt}v_n=0
-\end{cases} \]
-用矩阵表示为\[ \begin{bmatrix}
-	a_{11}&a_{21}&\dots&a_{n1}\\
-	a_{12}&a_{22}&\dots&a_{n2}\\
-	& 	 &\vdots\\
-	a_{1t}&a_{2t}&\dots&a_{nt}
-\end{bmatrix}\begin{bmatrix}
-	p_1	&	0	&	\dots&	0\\
-	0	&	p_2	&	\dots&	0\\
-	& 	 &\vdots\\
-	0	&	0	&	\dots&	p_n
-\end{bmatrix}\begin{bmatrix}
-	v_1\\v_2\\\vdots\\v_n
-\end{bmatrix}=\begin{bmatrix}
-	0\\0\\\vdots\\0
-\end{bmatrix} \]
-即\[ A^TPV=0 \]
-而$ V=L-A\hat{X} $，所以\[ A^TP(L-A\hat{X})=0 \]
-由$ A^TPA\hat{X}=A^TPL $得出解为\[ \hat{X}=(A^TPA)^{-1}A^TPL \]
-令$ C^*=A^TPA $则\[ \hat{X}=(C)^{*-1}A^TPL \]
-这就是不等精度测量时，线性参数的最小二乘法处理。
-\[ E(\hat{X})=E((C)^{*-1}A^TPL)=(C)^{*-1}A^TPE(L)=(C)^{*-1}A^TPAX=X \]
-可见$ \hat{X} $是$ X $的无偏估计。
+\item \textbf{不等精度测量线性参数最小二乘法处理的正规方程}
+
+	\qquad 不等精度测量时线性参数的误差方程和等精度的一样，只是条件式要取加权残余误差平方和最小，即\[ Z=\sum_{i=1}^{n}p_iv_i^2=min \]
+	对$ Z $求导数并令其为0，最后求得正规方程为\[ \begin{cases}
+		p_1a_{11}v_1+p_2a_{21}v_2+...+p_na_{n1}v_n=0\\
+		p_1a_{12}v_1+p_2a_{22}v_2+...+p_na_{n2}v_n=0\\
+		\qquad \vdots\\
+		p_1a_{1t}v_1+p_2a_{2t}v_2+...+p_na_{nt}v_n=0
+	\end{cases} \]
+	用矩阵表示为\[ \begin{bmatrix}
+		a_{11}&a_{21}&\dots&a_{n1}\\
+		a_{12}&a_{22}&\dots&a_{n2}\\
+		& 	 &\vdots\\
+		a_{1t}&a_{2t}&\dots&a_{nt}
+	\end{bmatrix}\begin{bmatrix}
+		p_1	&	0	&	\dots&	0\\
+		0	&	p_2	&	\dots&	0\\
+		& 	 &\vdots\\
+		0	&	0	&	\dots&	p_n
+	\end{bmatrix}\begin{bmatrix}
+		v_1\\v_2\\\vdots\\v_n
+	\end{bmatrix}=\begin{bmatrix}
+		0\\0\\\vdots\\0
+	\end{bmatrix} \]
+	即\[ A^TPV=0 \]
+	而$ V=L-A\hat{X} $，所以\[ A^TP(L-A\hat{X})=0 \]
+	由$ A^TPA\hat{X}=A^TPL $得出解为\[ \hat{X}=(A^TPA)^{-1}A^TPL \]
+	令$ C^*=A^TPA $则\[ \hat{X}=(C)^{*-1}A^TPL \]
+	这就是不等精度测量时，线性参数的最小二乘法处理。
+	\[ E(\hat{X})=E((C)^{*-1}A^TPL)=(C)^{*-1}A^TPE(L)=(C)^{*-1}A^TPAX=X \]
+	可见$ \hat{X} $是$ X $的无偏估计。
+\end{enumerate}
 \subsection{回归分析}
 在生产科学中，还有另一类问题，即测量与数据处理的目的并不在于被测的估计值，而是为了找出两个变量或多个变量之间的内在关系，表达变量之间关系的方法有多种，比如散点图、表格、曲线、数学表达式等，其中数学表达式能较客观地反映事物的内在规律性。对此，我们要用到回归分析。
 
