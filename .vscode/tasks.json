@@ -5,6 +5,6 @@
     "version": "0.1.0",
     "command": "xelatex",
     "isShellCommand": true,
-    "args": ["-synctex=1","-interaction=nonstopmode","防灾科技学院毕业设计模板.tex"],
+    "args": ["-synctex=1","-interaction=nonstopmode","135032105-艾江南-基于GUI的误差理论与数据处理系统.tex"],
     "showOutput": "always"
 }
