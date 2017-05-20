@@ -57,7 +57,7 @@ Matlab是一个功能极其强大的数据处理软件，传统的数据分析�
  		1	2	3	4	5\end{lstlisting}
 \end{enumerate}
 \subsubsection{Matlab常用函数}
-Matlab计算功能之所以强大，是因为它拥有很多的工具箱，里面封装了许多用于处理数据的函数，我们掌握如何使用这些函数，就掌握了Matlab的使用。在误差理论与数据处理中，我们常用的Matlab函数如下表：
+Matlab计算功能之所以强大，是因为它拥有很多的工具箱，里面封装了许多用于处理数据的函数，掌握如何使用这些函数，就掌握了Matlab的使用。在误差理论与数据处理中，常用的Matlab函数如下表：
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{p{3cm}<{\centering}p{8cm}}
@@ -118,7 +118,7 @@ Matlab编写的代码是以.m结尾的文件格式，m文件分为两种，m脚�
  	ans =
 		 7\end{lstlisting}
 \subsection{Matlab GUI设计}
-在Matlab中，GUI设计有两种方法，一种是用代码实现界面的编程，还有一种是使用GUIDE图形界面设计，前者虽然编写代码量较大，界面的绘制都用代码实现，但在重复设计上有优势，比如大部分控件拥有相同的属性，我们可以用循环来设置。后者虽然操作简单，界面绘制布局可视化，但在控件多的情况下，重复设置属性就比较麻烦了。在本毕业设计中，采用的前种设计方法。在Matlab中图形界面的层次结构\footnote{引用参考文献[2]第9章Matlab GUI的组成与结构第183页}如下图：
+在Matlab中，GUI设计有两种方法，一种是用代码实现界面的编程，还有一种是使用GUIDE图形界面设计，前者虽然编写代码量较大，界面的绘制都用代码实现，但在重复设计上有优势，比如大部分控件拥有相同的属性，在这里可以用循环来设置。后者虽然操作简单，界面绘制布局可视化，但在控件多的情况下，重复设置属性就比较麻烦了。在本毕业设计中，采用的前种设计方法。在Matlab中图形界面的层次结构\footnote{引用参考文献[2]第9章Matlab GUI的组成与结构第183页}如下图：
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{MatlabGUI}
@@ -145,10 +145,10 @@ Matlab编写的代码是以.m结尾的文件格式，m文件分为两种，m脚�
 		\includegraphics[scale=0.4]{MyFigure}
 		\caption{MyFigure窗口}
 	\end{figure}
-	根据图9的结果，我们知道，窗口的位置和大小都是固定的，而且窗口是不可变的，不能拖拽放大，也不能最大化，因为在属性中设置的结果。
+	根据图9的结果，窗口的位置和大小都是固定的，而且窗口是不可变的，不能拖拽放大，也不能最大化，因为在属性中设置的结果。
 	\item \textbf{uimenu函数}
 
-	\qquad 在设计菜单的时候，必须要先有一个图形框架窗口，我们在前面用figure函数\footnote{参考文献[2]第9章Matlab GUI的组成与结构第183页}创建好的界面基础上设计菜单栏。设计的方法如下：
+	\qquad 在设计菜单的时候，必须要先有一个图形框架窗口，在前面用figure函数\footnote{参考文献[2]第9章Matlab GUI的组成与结构第183页}创建好的界面基础上设计菜单栏。设计的方法如下：
 	\begin{lstlisting}
  hm = uimenu(parent,'PropertyName',propertyvalue,...);\end{lstlisting}
 	其中：hm为对象名，参数parent为父对象名，后面的参数同样是成对存在的属性PropertyName和属性值propertyvalue，用来设置菜单的一些属性。执行如下代码：
@@ -232,9 +232,9 @@ Matlab编写的代码是以.m结尾的文件格式，m文件分为两种，m脚�
 	\end{figure}
 \end{enumerate}
 
-利用前面的5个GUI设计函数，可以设计出任何我们想要和图形交互界面，只需要在函数参数中根据我们的需求设置属性即可，控件中常用的属性设置见附录B，但上面的仅仅是设计好界面，还不能够处理数据，要想使用控件触发事件，则需要使用回调函数。
+利用前面的5个GUI设计函数，可以设计出任何图形交互界面，只需要在函数参数中根据需求设置属性即可，控件中常用的属性设置见附录B，但上面的仅仅是设计好界面，还不能够处理数据，要想使用控件触发事件，则需要使用回调函数。
 \subsubsection{Matlab中回调函数的编写}
-GUI界面中，要想实现数据的交互和计算处理，我们要用到下面三个函数来获取界面控件属性的值和设置界面控件的属性。
+GUI界面中，要想实现数据的交互和计算处理，要用到下面三个函数来获取界面控件属性的值和设置界面控件的属性。
 \begin{enumerate}
 	\item \textbf{get函数}
 
@@ -244,7 +244,7 @@ GUI界面中，要想实现数据的交互和计算处理，我们要用到下�
  	其中：h为要获取的对象，可以是控件、菜单、窗口等，PropertyName为要获取属性值的属性名称。在前面的代码中添加下面代码：
 	 \begin{lstlisting}
  get(ui(3),'String')									% 获取 ui(3) 控件的 String 属性\end{lstlisting}
- 	因为上面代码没有写分号，运行结果会在命令窗口输出pushbutton，因为ui(3)是我们创建的按钮控件。
+ 	因为上面代码没有写分号，运行结果会在命令窗口输出pushbutton，因为ui(3)是之前创建的按钮控件。
 	\item \textbf{set函数}
 
 	\qquad 使用set函数可以设置对象的属性值，set函数的形式如下：
@@ -253,10 +253,10 @@ GUI界面中，要想实现数据的交互和计算处理，我们要用到下�
  	其中：h为要设置的对象，可以是控件、菜单、窗口等，PropertyName为要设置属性的名称，propertyvalue为要设置的属性值。在前面的代码中添加下面代码：
 	 \begin{lstlisting}
  set(ui(1),'String',1);									% 设置 ui(1) 控件的 String 属性为1\end{lstlisting}
- 	运行结果我们可以发现界面中text已经变成1了，因为我们创建的ui(1)为静态文本控件。
+ 	运行结果可以发现界面中text已经变成1了，因为创建的ui(1)为静态文本控件。
 	\item \textbf{guidata函数}
 
-	\qquad 这个函数可以用来存储和获取GUI界面的控件数据，每个控件在Matlab中都有一个ID，主界面的所有控件ID都存放在一个数组里，guidata函数可以将ID以结构体的形式保存起来，结构体中有控件的Tag属性和ID，然后可以在回调函数中利用guidata函数来获取我们需要设置的控件。我们将前面的代码改成m函数文件，再添加如下代码：
+	\qquad 这个函数可以用来存储和获取GUI界面的控件数据，每个控件在Matlab中都有一个ID，主界面的所有控件ID都存放在一个数组里，guidata函数可以将ID以结构体的形式保存起来，结构体中有控件的Tag属性和ID，然后可以在回调函数中利用guidata函数来获取需要设置的控件。将前面的代码改成m函数文件，再添加如下代码：
 	\begin{lstlisting}
  function MyFrame										% 创建 m 函数文件，名称与文件名称一致
  hf = figure('Name','MyFigure',...						% 省略前面写好的代码
@@ -276,4 +276,4 @@ GUI界面中，要想实现数据的交互和计算处理，我们要用到下�
           text: 6.0455\end{lstlisting}
 \end{enumerate}
 
-我们通过设置回调函数，设置界面控件数据的保存和读取，可以完成界面处理数据的功能。在基于GUI的误差理论与数据处理设计中，我们先设计好界面，然后再设计数据处理的m文件，然后可以通过回调函数来调用它们。界面设计的部分代码见附录C，数据处理的部分代码见附录D，项目源代码：\url{https://github.com/AiJiangnan/ErrorTheoryDataProcessing}
+通过设置回调函数，设置界面控件数据的保存和读取，可以完成界面处理数据的功能。在基于GUI的误差理论与数据处理设计中，先设计好界面，然后再设计数据处理的m文件，然后可以通过回调函数来调用它们。界面设计的部分代码见附录C，数据处理的部分代码见附录D，项目源代码：\url{https://github.com/AiJiangnan/ErrorTheoryDataProcessing}
