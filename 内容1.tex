@@ -490,7 +490,7 @@ F(\delta)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\delta}e^{-\delta^2/(2\sigm
 \subsection{回归分析}
 在生产科学中，还有另一类问题，即测量与数据处理的目的并不在于被测的估计值，而是为了找出两个变量或多个变量之间的内在关系，表达变量之间关系的方法有多种，比如散点图、表格、曲线、数学表达式等，其中数学表达式能较客观地反映事物的内在规律性。对此，要用到回归分析。
 
-假设测量某导线在一定温度下$ x $下的电阻值$ y $得结果如表2所示（单位略），试找出它们之间的内在关系。
+假设测量某导线在一定温度下$ x $下的电阻值$ y $得结果如表1-2所示（单位略），试找出它们之间的内在关系。
 \begin{figure}[H]
 	\centering
 	\captionsetup{type=table}
@@ -501,7 +501,7 @@ F(\delta)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\delta}e^{-\delta^2/(2\sigm
 			$ y $&  76.30&  77.80&  79.75&  80.80&  82.35&  83.90&  85.10\\\hline 
 	\end{tabular}
 \end{figure}
-为了研究电阻$ y $与温度$ x $之间的关系，把数据点画在坐标上，如图5所示。
+为了研究电阻$ y $与温度$ x $之间的关系，把数据点画在坐标上，如图1-5所示。
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
@@ -521,7 +521,7 @@ F(\delta)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\delta}e^{-\delta^2/(2\sigm
 \end{figure}
 设$ b_0 $和$ b $分别是$ y_t=\beta_0+\beta x_t+\varepsilon_t,t=1,2,...,N $的最小二乘估计，得到一元线性回归的回归方程为\begin{equation} \hat{y}=b_0+bx \end{equation}
 应用最小二乘法求解回归系数，求得方程为\begin{equation} y=70.90+0.2824x \end{equation}
-作出回归方程函数图对比，如图6。
+作出回归方程函数图对比，如图1-6。
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
